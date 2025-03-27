@@ -57,55 +57,38 @@
   .col-2-3 {
    width: 66.6667%;
   }
-  .carousel-inner {
-   display: flex;
-   width: 100%;
-  }
 .slider {
   width: 100%;
   text-align: center;
   overflow: hidden;
+    position: relative;
+    background: #000;
+    margin: 15px 0;
 }
 .slides {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  object-fit: scale-down;
-  overflow: hidden;
+    width: 100%;
+    max-height: 250px;
+    position: relative;
+    animation: slideanim 3s infinite;
+    pointer-events: none;
 }
-.slides > div {
-  flex-shrink: 1;
-  width: 100%;
-  max-height: 250px;
-  margin: 10px;
-  border-radius: 10px;
-  background: #eee;
-  transform: scale(1);
-  transition: transform 0.5s;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.slides:nth-child(1),
+.slides:nth-child(1) img {
+    animation-delay: 0;
 }
-.slider > a {
-  display: inline-flex;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: white;
-  text-decoration: none;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin: 0 0 0.5rem 0;
-  position: relative;
-} 
-.slider > a:active {
-  top: 1px;
+.slides:nth-child(2),
+.slides:nth-child(2) img {
+    animation-delay: 1s;
 }
-.slider > a:focus {
-  background: grey;
+.slides:nth-child(3),
+.slides:nth-child(3) img {
+    animation-delay: 2s;
+}
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoom 4s infinite;
 }
  </style>
 </head>
@@ -134,29 +117,21 @@
  </header>
  <div class=main>
  <div class='line'>
- <div class='container'>
-    <div class="col-1-2">
-      <div class="carousel-inner">
-       <div class="slider">               
-        <div class="slides">
-         <div id="slide-1">
-          <img src='https://sun9-28.userapi.com/impg/B9dLEmJbXlXveT3uw4SqIyT7_JOURO9-PvL9EA/rIWXIaaooqY.jpg?size=1379x980&quality=96&sign=b6b6dd398139fbadd99a9dd635f66949&c_uniq_tag=qQfJJRiXWnXo1dBuXtmP2WAoFB5RnWNEJ1mj6A3VXxE&type=album' alt='Адаптивный дизайн'>
-         </div>
-         <div id="slide-2">
-          <img src="https://hozyindachi.ru/wp-content/uploads/2022/09/glavnaya-stranica-sajta-foto.jpg" alt="Современный сайт">
-         </div>
-         <div id="slide-3">
-          <img src="https://avatars.mds.yandex.net/i?id=00109fd94b53c12d0d56aac61c821339_l-10703717-images-thumbs&n=13" alt="Менеджеры общаются с клиентами">
-         </div>
-        </div> <!--закрываем slides-->
-         <a href="#slide-1">1</a>
-         <a href="#slide-2">2</a>
-         <a href="#slide-3">3</a> 
-       </div><!--закрываем slider-->
-      </div>
-
+  <div class='container'>
+   <div class="col-1-2"> 
+    <div class="slider">
+     <div class="slides">
+        <img src='https://sun9-28.userapi.com/impg/B9dLEmJbXlXveT3uw4SqIyT7_JOURO9-PvL9EA/rIWXIaaooqY.jpg?size=1379x980&quality=96&sign=b6b6dd398139fbadd99a9dd635f66949&c_uniq_tag=qQfJJRiXWnXo1dBuXtmP2WAoFB5RnWNEJ1mj6A3VXxE&type=album' alt='Адаптивный дизайн'>
+     </div>
+     <div class="slides">
+        <img src="https://hozyindachi.ru/wp-content/uploads/2022/09/glavnaya-stranica-sajta-foto.jpg" alt="Современный сайт">
+     </div>
+     <div class="slides">
+        <img src="https://avatars.mds.yandex.net/i?id=00109fd94b53c12d0d56aac61c821339_l-10703717-images-thumbs&n=13" alt="Менеджеры общаются с клиентами">
+     </div>
     </div>
-    <div class="col-1-2" id='1' style='padding:20px'>
+   </div>
+   <div class="col-1-2" id='1' style='padding:20px'>
      Я готова сделать для вас сайт, который:
      <ul>
       <li>покажет все лучшие качества вашего продукта</li>
