@@ -7,8 +7,6 @@
    max-width: 1024px;
    padding: 15px;
    margin: 0 auto;
-   display: -webkit-flex;
-   display: -ms-flexbox;
    display: flex;
   }
   .logo {
@@ -38,10 +36,6 @@
    margin: 0 auto;
    background: #73CFDC;
   }
-  .container div {
-   float: left;
-   margin-bottom: 15px;
-  }
   .col-1-2 {
    width: 50%;
   }
@@ -57,38 +51,90 @@
   .col-2-3 {
    width: 66.6667%;
   }
-.slider {
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-    position: relative;
-    background: #000;
-    margin: 15px 0;
-}
-.slides {
+.slideshow {
     width: 100%;
-    max-height: 250px;
+    height: 500px;
     position: relative;
-    animation: slideanim 3s infinite;
+    overflow: hidden;
+    background: #000;
+    margin: 20px 0;
+}
+.slideshow-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: slideanim 18s infinite;
     pointer-events: none;
 }
-.slides:nth-child(1),
-.slides:nth-child(1) img {
+.slideshow-item:nth-child(1),
+.slideshow-item:nth-child(1) img {
     animation-delay: 0;
 }
-.slides:nth-child(2),
-.slides:nth-child(2) img {
-    animation-delay: 1s;
+.slideshow-item:nth-child(2),
+.slideshow-item:nth-child(2) img {
+    animation-delay: 6s;
 }
-.slides:nth-child(3),
-.slides:nth-child(3) img {
-    animation-delay: 2s;
+.slideshow-item:nth-child(3),
+.slideshow-item:nth-child(3) img {
+    animation-delay: 12s;
 }
-.slides img {
+.slideshow-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    animation: zoom 4s infinite;
+    animation: zoom 18s infinite;
+}
+.slideshow-item-text {
+    max-width: 50%;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 20px 30px;
+    font-family: Verdana, sans-serif;   
+}
+.slideshow-item-text h5 {
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    color: #BFE2FF;
+}
+.slideshow-item-text p {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+@keyframes slideanim {
+    12.5%{
+        opacity: 1;
+        pointer-events: auto;
+    }    
+    37.5%{
+        opacity: 0.5;
+    }
+}
+@keyframes zoom {
+    50%{
+        transform: scale(1.1);
+    }    
+}
+@media screen and (max-width: 1100px){
+    .slideshow-item-text{
+        max-width: 75%;
+    }
+}
+@media screen and (max-width: 456px){
+    .slideshow-item-text {
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
+    }
+    .slideshow-item-text h5 {
+        font-size: 18px;
+    }
+    .slideshow-item-text p {
+        font-size: 13px;
+    }
 }
  </style>
 </head>
@@ -119,18 +165,30 @@
  <div class='line'>
   <div class='container'>
    <div class="col-1-2"> 
-    <div class="slider">
-     <div class="slides">
+     <div class="slideshow">
+       <div class="slideshow-item">
         <img src='https://sun9-28.userapi.com/impg/B9dLEmJbXlXveT3uw4SqIyT7_JOURO9-PvL9EA/rIWXIaaooqY.jpg?size=1379x980&quality=96&sign=b6b6dd398139fbadd99a9dd635f66949&c_uniq_tag=qQfJJRiXWnXo1dBuXtmP2WAoFB5RnWNEJ1mj6A3VXxE&type=album' alt='Адаптивный дизайн'>
-     </div>
-     <div class="slides">
+        <div class="slideshow-item-text">
+            <h5>Заголовок</h5>
+            <p>Описание</p>
+        </div>
+       </div>
+       <div class="slideshow-item">
         <img src="https://hozyindachi.ru/wp-content/uploads/2022/09/glavnaya-stranica-sajta-foto.jpg" alt="Современный сайт">
-     </div>
-     <div class="slides">
+        <div class="slideshow-item-text">
+            <h5>Заголовок</h5>
+            <p>Описание</p>
+        </div>
+       </div>
+       <div class="slideshow-item">
         <img src="https://avatars.mds.yandex.net/i?id=00109fd94b53c12d0d56aac61c821339_l-10703717-images-thumbs&n=13" alt="Менеджеры общаются с клиентами">
-     </div>
+        <div class="slideshow-item-text">
+            <h5>Заголовок</h5>
+            <p>Описание</p>
+        </div>
+       </div>
+      </div>   
     </div>
-   </div>
    <div class="col-1-2" id='1' style='padding:20px'>
      Я готова сделать для вас сайт, который:
      <ul>
